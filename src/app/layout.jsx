@@ -1,30 +1,30 @@
-// src/app/layout.jsx
-import "./globals.css";
-import Link from "next/link";
+import Link from "next/link"
+import "./globals.css"
 
 export const metadata = {
-  title: "first app",
-  description: "this is my first project on NextJs",
-  author:"Balaraman S"
-};
+    title: "Simple Blog",
+    description: "A Next.js blog with comments",
+}
 
-const RootLayout = ({ children }) => {
-  return (
-    <html lang="en">
-      <body className="font-sans bg-white text-gray-900">
-        <nav className="p-4 border-b border-gray-300 bg-gray-100">
-          <div className="flex space-x-4">
-            <Link href="/" className="text-blue-600 hover:underline">Home</Link>
-            <Link href="/about-us" className="text-blue-600 hover:underline">About Us</Link>
-            <Link href="/contact-us" className="text-blue-600 hover:underline">Contact Us</Link>
-          </div>
-        </nav>
-        <main className="p-6">
-          {children}
-        </main>
-      </body>
-    </html>
-  );
-};
+export default function RootLayout({ children }) {
+    return (
+        <html lang='en'>
+            <body className='font-sans p-6 bg-gray-50 min-h-screen'>
+                <nav className='mb-6 border-b border-gray-300 pb-4 flex justify-center space-x-6'>
+                    <Link href='/' className='text-blue-600 hover:underline'>
+                        Home
+                    </Link>
+                    <Link
+                        href='/about-us'
+                        className='text-blue-600 hover:underline'
+                    >
+                        About
+                    </Link>
+                    <Link href="/create" className="text-blue-600 hover:underline">Create Post</Link>
+                </nav>
 
-export default RootLayout;
+                <main>{children}</main>
+            </body>
+        </html>
+    )
+}
